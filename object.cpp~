@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+class object {
+  int length;
+  struct color_t {
+    int r, g, b;
+    
+  };
+public:
+  color_t color;
+  object (int l, int red, int green, int blue) {
+    length = l;
+    color.r = red;
+    color.g = green;
+    color.b = blue;
+  }
+  void virtual draw() {}
+};

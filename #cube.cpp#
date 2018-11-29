@@ -1,0 +1,9 @@
+#include <bits/stdc++.h>
+
+class cube {
+public:
+    cube (int l, int red, int green, int blue) : object (int l, int red, int green, int blue) {}
+    void draw() {
+	// TODO this should draw a cube of size L 
+    }
+};
