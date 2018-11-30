@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 class ship {
-    vector <objects *> ship_representation;
+    vector <cell_representation> ship_representation;
     int sz = 0;
     bool destroyed;
     void construct_ship(int cell_size) {
