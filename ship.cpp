@@ -1,12 +1,15 @@
 #include <bits/stdc++.h>
-
+/*
+  This is the ship representation, it is only possible to draw it by position.
+  You cannot draw it entirely because it can vary according to the direction 
+ */
 class ship {
     vector <cell_representation> ship_representation;
     int sz = 0;
     bool destroyed;
     void construct_ship(int cell_size) {
 	for (int i = 0; i < sz; i++) {
-	    objects *to_add = new objects(cell_size);
+	    cell_representation *to_add = new cell_representation(cell_size);
 	    //This if-statement is to draw a cube and a sphere on the "head" of the ship
 	    if(i == 0) {
 		object *n1 = new cube(cell_size);
@@ -40,5 +43,8 @@ public:
     }
     bool is_destroyed() {
 	return destroyed;
+    }
+    int get_size() {
+	return sz;
     }
 };
