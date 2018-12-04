@@ -1,13 +1,18 @@
 #include <bits/stdc++.h>
+#include "cell_representation.hpp"
 
-class cell_representation {
-    vector <object *> representation;
-public:
-    cell_representation() {}
-    void append(object * put_back) {
+cell_representation::cell_representation() {}
+
+void cell_representation::append(object * put_back) {
 	representation.push_back(put_back);
-    }
-    void draw() {
-	//TODO DRAW EACH OBJECT REMEMBER TO MOVE THE "WORLD" BEFORE PUTTING THE NEXT ELEMENT
-    }
-};
+}
+
+void cell_representation::draw() {
+	glPushMatrix();
+	for (int i = 0; i < representation.size(); i++)
+	{
+		representation[i]->draw();
+		glTranslatef(0, representation[i]->length, 0);
+	}
+	glPopMatrix();
+}
