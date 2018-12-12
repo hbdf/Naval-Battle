@@ -20,4 +20,4 @@ main.o: main.cpp
 	g++ main.cpp -c -std=c++0x
 
 main: board.o cell_representation.o cube.o object.o ship.o sphere.o main.o
-	g++  -std=c++0x main.cpp board.o cell_representation.o cube.o object.o ship.o sphere.o -o main -lGL -lGLU -lglut
+	g++  -std=c++0x main.cpp board.o cell_representation.o cube.o object.o ship.o sphere.o -o main -lGL -lGLU -lglut -lpthread -pthread

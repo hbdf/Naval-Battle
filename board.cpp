@@ -26,13 +26,13 @@ void board::draw_mesh(GLuint * textures) {
 			glVertex3f(0, 0, 0);
 
 		glTexCoord2f(0.0f, 0.5f);
-			glVertex3f(0, 0, 10);
+			glVertex3f(0, 0, sz);
 
 	  	glTexCoord2f(0.5f, 0.5f); 
-			glVertex3f(10, 0, 10);
+			glVertex3f(sz, 0, sz);
 
 		glTexCoord2f(0.5f, 0.0f);
-			glVertex3f(10, 0, 0);
+			glVertex3f(sz, 0, 0);
 
 	glEnd();
 	// glColor3f(0, 0, 1);
@@ -136,19 +136,41 @@ void board::draw_for_op(GLuint * textures) {
 			glPopMatrix();
 		}
 	}
+
+				glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, textures[0]);
+	// glColor4f(0, 0, 1,1);
+	 glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_ADD);
+
 	for (int i = 0; i < destroyed_positions.size(); i++) 
 	{
 		glPushMatrix();
 		glTranslatef(destroyed_positions[i].first, 0, destroyed_positions[i].second);
 		glColor3f(1, 0, 0);
+
+
 		glBegin(GL_POLYGON); 
+		glTexCoord2f(0.0f, 0.0f);
+
 		glVertex3f( 0, 0.02, 0 ); 
+
+		glTexCoord2f(0.0f, 0.5f);
+
 		glVertex3f( 0,  0.02, 1 );
+	  	glTexCoord2f(0.5f, 0.5f); 
+		
 		glVertex3f( 1,  0.02, 1 );
+		glTexCoord2f(0.5f, 0.0f);
+		
+
 		glVertex3f( 1, 0.02, 0 ); 
 		glEnd();
+		
 		glPopMatrix();
 	}
+
+	glDisable(GL_TEXTURE_2D);
+
 }
 
 bool board::loose() {
@@ -157,3 +179,28 @@ bool board::loose() {
 	}
 	return true;
 }
+
+
+	// glEnable(GL_TEXTURE_2D);
+	// glBindTexture(GL_TEXTURE_2D, textures[1]);
+	// // glColor4f(0, 0, 1,1);
+	//  glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_ADD);
+	// glBegin(GL_POLYGON);
+ // glColor3f(0, 0, 1);
+
+	// 	glTexCoord2f(0.0f, 0.0f);
+	// 		glVertex3f(0, 0, 0);
+
+	// 	glTexCoord2f(0.0f, 0.5f);
+	// 		glVertex3f(0, 0, 10);
+
+	//   	glTexCoord2f(0.5f, 0.5f); 
+	// 		glVertex3f(10, 0, 10);
+
+	// 	glTexCoord2f(0.5f, 0.0f);
+	// 		glVertex3f(10, 0, 0);
+
+	// glEnd();
+	// // glColor3f(0, 0, 1);
+
+	// glDisable(GL_TEXTURE_2D);
